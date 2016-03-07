@@ -1,0 +1,6 @@
+LOGS METAS\:%{DATA:metas}\|\|\|%{GREEDYDATA:message}
+JAVA %{DATESTAMP:timestamp} %{DATA:thread} \[%{DATA:logLevel}\s*\] \[(%{IP:clientip})?\] \[%{USER:user}\] \[(%{DATA:matricule})?\] \[(%{DATA:contrat})?\] %{DATA:classMethod} : %{GREEDYDATA:detail}
+MY_APACHE %{IPORHOST:clientip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:timestamp}\] "(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})" %{NUMBER:response} (?:%{NUMBER:bytes:int}|-) %{QS:referrer} %{QS:agent}
+MY_SYSLOG %{SYSLOGBASE2} %{GREEDYDATA:detail}
+WINDOWS_EVENT %{TIMESTAMP_ISO8601:timestamp} %{DATA:server} %{DATA:logLevel} %{DATA:pid} %{GREEDYDATA:detail}
+
