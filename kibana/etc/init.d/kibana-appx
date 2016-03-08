@@ -1,20 +1,20 @@
 #!/bin/sh
 #
-# /etc/init.d/kibana-apps -- startup script for Kibana / apps
+# /etc/init.d/kibana-<app-X> -- startup script for Kibana / <app-X>
 #
 #
 ### BEGIN INIT INFO
-# Provides:          kibana-apps
+# Provides:          kibana-<app-X>
 # Required-Start:    $network $remote_fs $named
 # Required-Stop:     $network $remote_fs $named
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Starts kibana-apps
-# Description:       Starts kibana-apps using start-stop-daemon
+# Short-Description: Starts kibana-<app-X>
+# Description:       Starts kibana-<app-X> using start-stop-daemon
 ### END INIT INFO
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
-NAME=kibana-apps
+NAME=kibana-<app-X>
 DESC="Kibana Server $NAME"
 
 if [ `id -u` -ne 0 ]; then
